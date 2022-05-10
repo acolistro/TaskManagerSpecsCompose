@@ -38,28 +38,36 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TaskStatusText(taskComplete: String, congrats: String) {
     val image = painterResource(R.drawable.ic_task_completed)
-    Column {
-        Image(
-            painter = image,
-            contentDescription = null,
+        Column(
             modifier = Modifier
-                .wrapContentWidth(Alignment.CenterHorizontally)
-                .wrapContentHeight(Alignment.CenterVertically)
-        )
-        Text(
-            text = taskComplete,
-            fontSize = 24.sp,
-            modifier = Modifier
-                .padding(top = 24.dp, bottom = 8.dp)
-                .wrapContentWidth(Alignment.CenterHorizontally)
+                .fillMaxSize()
+                .wrapContentSize(Alignment.Center)
+        ) {
+            Image(
+                painter = image,
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+//                    .wrapContentWidth(Alignment.CenterHorizontally)
+//                    .wrapContentHeight(Alignment.CenterVertically)
+                    .wrapContentSize(Alignment.Center)
             )
-        Text(
-            text = congrats,
-            fontSize = 16.sp,
-            modifier = Modifier
-                .wrapContentWidth(Alignment.CenterHorizontally)
+            Text(
+                text = taskComplete,
+                fontSize = 24.sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 24.dp, bottom = 8.dp)
+                    .wrapContentWidth(Alignment.CenterHorizontally)
             )
-    }
+            Text(
+                text = congrats,
+                fontSize = 16.sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentWidth(Alignment.CenterHorizontally)
+            )
+        }
 }
 
 @Preview(showBackground = true)
